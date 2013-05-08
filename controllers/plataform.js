@@ -32,6 +32,7 @@ exports.loginPost = function(req, res){
 					res.redirect(post.redirect);
 				}
 				else{
+					console.log(err);
 					res.redirect('/login');
 				}
 			}
@@ -73,6 +74,7 @@ exports.smsInboxGet = function( req, res ){
 					res.render('sms-inbox',{ title : 'Bandeja de entrada', rows: items } );
 				}
 				else{
+					console.log(err);
 					res.redirect('/login');
 				}
 			}
