@@ -1,0 +1,19 @@
+!!!5
+html
+  head
+    title #{title}
+    link(rel='stylesheet', href='/css/login.css')
+  body
+    #form
+      div.top
+       h1 Iniciar sesión
+      div.content
+        form(action='/login',method='post')
+          input(id='redirect',name='redirect',value=redirect,type='hidden')
+          label(for='email') Nombre
+          input(id='email',name='email',type='text',value='',class='input-block')
+          label(for='password') Contrasena
+          input(id='password',name='password',type='password',value='',placeholder='',class='input-block')
+          input(type='submit',value='Entrar',data-transition='fade', data-theme='c',class='button')
+      script
+        document.getElementById('email').focus();

@@ -1,0 +1,20 @@
+div(class="navbar")
+	div(class="navbar-inner")
+		ul(class="nav")
+			li(class="active")
+				a(href="/") Inicio
+		ul(class="nav pull-right")
+			li(class="btn-group")
+				button(class="btn") Mi Cuenta
+				button(class="btn dropdown-toggle",data-toggle="dropdown")
+					span(class="caret")
+				ul(class="dropdown-menu")
+					li
+						a(href="/profile")
+							i(class="icon-user")
+							| &ensp; Perfil
+					li(class="divider")
+					li
+						a(href="/logout")
+							i(class="icon-off")
+							| &ensp; Salir

@@ -1,0 +1,15 @@
+extend layout
+block content
+	include template/navbar
+	div(class="container-fluid")
+		div(class="row-fluid")
+			div(class="span2")
+				ul(class="nav nav-list")
+					li(class="nav-header") Sms
+					li
+						a(href="/sms/inbox") Bandeja de entrada
+					li(class="nav-header") Herramientas
+					li
+						a(href="/tools/reward") Premiar
+			div(class="span10")
+				table(class="table table-striped")

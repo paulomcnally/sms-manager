@@ -1,0 +1,45 @@
+extend layout
+block content
+	include template/navbar
+	div(class="container-fluid")
+		div(class="row-fluid")
+			div(class="span2")
+				ul(class="nav nav-list")
+					li(class="nav-header") Sms
+					li(class="active")
+						a(href="/sms/inbox") Bandeja de entrada
+					li(class="nav-header") Herramientas
+					li
+						a(href="/tools/reward") Premiar
+			div(class="span10")
+				table(class="table table-striped")
+					thead
+						tr
+							th Number
+							th Message
+							th Hora
+					tbody
+						each item in rows
+							tr
+								td #{item.number}
+								td #{item.message}
+								td #{item.registered}
+	script
+		$(document).on("ready", open_ws);
+			function open_ws(){
+				websocket.on("ws_getData", getMessage);
+			}
+			function sendMessage(){
+				var obj = {};
+				obj.type ="sms";
+				obj.number ="88888888";
+				obj.message = "<p>Demo</p>";
+				obj.registered = new Date();
+				websocket.emit("new_message", obj );
+			}
+			function getMessage(data){
+				if( data.type == "sms" ){
+					var tr = '<tr><td>'+data.number+'</td><td>'+decodeURIComponent(data.message)+'</td><td>'+data.registered+'</td></tr>';
+					$(".table tbody").prepend(tr);
+				}
+			}
