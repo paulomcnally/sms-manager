@@ -1,10 +1,3 @@
-====================================================
-=         ____          _                          =
-=        |  _ \   ___  | |   _  ___  __            =
-=        | |_) | / _ \ | |  | || _ \ | |           =
-=        |  __/ | (_) || |__| || |\ \  |           =
-=        |_|     \___/ |____|_||_| \___|           =
-=                                                  =
-====================================================
+## SMS Manager ##
 
-SMS Manager
+[Instalar MongoDB en Windows](http://paulomcnally.com/polin/videotutoriales!instalar-mongodb-en-windows&id=23)
