@@ -5,10 +5,7 @@ var express = require('express')
  , controllers = require('./controllers')
  , config = require('./config')
  , models = require('./models')
- , string = require('string')
- , moment = require('moment')
  , db = mongoose.createConnection( config.mongodb.url );
- moment.lang("es");
 
 /*
  var row = new models.users;
@@ -69,29 +66,11 @@ app.get("/sms/inbox",IsAuthenticated,controllers.plataform.smsInboxGet);
 
 var server = require('http').createServer(app)
 var WebSocket = require("socket.io").listen( server );
-WebSocket.sockets.on("connection", ws_start);
-function ws_start(data){
-  data.on("new_message", ws_sendData);
-}
-function ws_sendData(data){
 
-  var obj = {};
-  data.message = string(data.message).stripTags().s;
-  data.registered = moment(new Date()).fromNow();
+controllers.api.setup(models, WebSocket);
 
-  var row = new models.sms;
-  row.number = obj.number;
-  row.message = data.message;
-  row.registered = new Date();
-  row.read = false;
-  row.save(function(err){
-      if(err){
-        console.log(err);
-      }
-      else{
-       WebSocket.sockets.emit("ws_getData",data);
-      }
-    });
-}
+WebSocket.sockets.on("connection", controllers.api.webSocketStart);
+
+app.post("/api",controllers.api.receiber);
 
 server.listen(80);

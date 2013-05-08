@@ -64,7 +64,7 @@ exports.smsInboxGet = function( req, res ){
 					rows.forEach(function(item){
 						var objItem = {};
 						objItem.number = item.number;
-						objItem.message = item.message;
+						objItem.text = item.text;
 						objItem._id = item._id;
 						objItem.read = item.read;
 						objItem.registered = moment(item.registered).fromNow();

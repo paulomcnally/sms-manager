@@ -7,7 +7,7 @@ exports.setup = function(_mongoose,_db){
 
   var schema = mongoose.Schema({ 
     number: String,
-    message: String,
+    text: String,
     registered: Date,
     read: Boolean
   });

@@ -22,24 +22,16 @@ block content
 						each item in rows
 							tr
 								td #{item.number}
-								td #{item.message}
+								td #{item.text}
 								td #{item.registered}
 	script
 		$(document).on("ready", open_ws);
 			function open_ws(){
 				websocket.on("ws_getData", getMessage);
 			}
-			function sendMessage(){
-				var obj = {};
-				obj.type ="sms";
-				obj.number ="88888888";
-				obj.message = "<p>Demo</p>";
-				obj.registered = new Date();
-				websocket.emit("new_message", obj );
-			}
 			function getMessage(data){
 				if( data.type == "sms" ){
-					var tr = '<tr><td>'+data.number+'</td><td>'+decodeURIComponent(data.message)+'</td><td>'+data.registered+'</td></tr>';
+					var tr = '<tr><td>'+data.number+'</td><td>'+data.text+'</td><td>'+data.registered+'</td></tr>';
 					$(".table tbody").prepend(tr);
 				}
 			}
