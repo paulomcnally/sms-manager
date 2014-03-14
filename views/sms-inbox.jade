@@ -24,7 +24,7 @@ block content
 								td #{item.number}
 								td #{item.text}
 								td #{item.registered}
-	script
+	script.
 		$(document).on("ready", open_ws);
 			function open_ws(){
 				websocket.on("ws_getData", getMessage);
