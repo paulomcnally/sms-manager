@@ -11,6 +11,6 @@ html
 		script( src='/js/bootstrap.min.js' )
 		script( src="/socket.io/socket.io.js")
 		script
-			var websocket = io.connect("http://localhost");
+			var websocket = io.connect(document.location.protocol+'//'+document.location.host);
 	body
 		block content
