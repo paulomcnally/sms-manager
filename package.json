@@ -1,0 +1,14 @@
+{
+  "name": "sms-manager",
+  "version": "0.0.1",
+  "dependencies": {
+    "string": "~1.8.0",
+    "moment": "~2.5.1",
+    "nib": "~1.0.2",
+    "socket.io": "~0.9.16",
+    "express": "~3.4.8",
+    "mongoose": "~3.8.8",
+    "stylus": "~0.42.3",
+    "jade": "~1.3.0"
+  }
+}
