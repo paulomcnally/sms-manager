@@ -44,7 +44,8 @@ var app = express();
 // express settings
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
-app.use(express.bodyParser());
+app.use(express.json());
+app.use(express.urlencoded());
 app.use(express.cookieParser());
 app.use(express.session({ secret: '023197422617bce43335cbd3c675aeed' }));
 app.use(express.logger('dev'));
